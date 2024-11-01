@@ -1,0 +1,6 @@
+*.yaml
+*.yml
+*.md
+coverage
+package.json
+package-lock.json

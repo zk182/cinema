@@ -1,0 +1,52 @@
+version: '3.3'
+
+#
+#  Used for development only
+#
+services:
+   cinemapostgres:
+      container_name: cinemapostgres
+      image: postgres:15-alpine
+      environment:
+         - POSTGRES_USER=root
+         - POSTGRES_PASSWORD=123456
+         - POSTGRES_DB=cinema
+         - TZ=Europe/Madrid
+      volumes:
+         - cinemapostgres-data:/var/lib/postgresql/data
+         - ./src/sql/:/docker-entrypoint-initdb.d
+      logging:
+         driver: none
+      ports:
+         - '54328:5432'
+
+   cinemaredis:
+      container_name: cinemaredis
+      image: redis:5-alpine
+      ports:
+         - '63798:6379'
+      volumes:
+         - cinemaredis-data:/data
+      logging:
+         driver: none
+
+   cinemamongo:
+      container_name: cinemamongodb
+      image: mongo:6.0
+      ports:
+         - "27017:27017"
+      environment:
+         - MONGO_INITDB_ROOT_USERNAME=root
+         - MONGO_INITDB_ROOT_PASSWORD=123456
+      volumes:
+         - cinemamongodb-data:/data/db
+      logging:
+         driver: none
+
+volumes:
+   cinemapostgres-data:
+      driver: local
+   cinemaredis-data:
+      driver: local
+   cinemamongodb-data:
+      driver: local   
