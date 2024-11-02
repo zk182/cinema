@@ -22,7 +22,11 @@ class SessionController extends MasterController {
 		return session;
 	}
 
-	async getSeatStatusBySessionId(sessionId) {
+	async getSeats() {
+		return this.sessionSeatsModel.list();
+	}
+
+	async getStatusBySessionId(sessionId) {
 		const session = await this.getById(sessionId, ['hallId']);
 		const hallConfig = await HallController.getHallConfigByHallId(
 			session.hallId
