@@ -6,3 +6,9 @@ export function toId(_id) {
 	}
 	return new ObjectId('' + _id);
 }
+
+export const transactionOptions = {
+	readPreference: 'primary',
+	readConcern: { level: 'snapshot' },
+	writeConcern: { w: 'majority' }
+};

@@ -13,7 +13,6 @@ class UserController extends MasterController {
 
 	async getById(id, fields) {
 		const user = await this.model.getById(id, fields);
-
 		if (!user) {
 			throw new ResourceNotFound('User not found');
 		}

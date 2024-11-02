@@ -54,7 +54,7 @@ class AuthController extends MasterController {
 		user.password = undefined;
 
 		const fieldsToUpdate = {
-			lastLogin: moment().unix()
+			lastLogin: moment().toDate()
 		};
 
 		if (ip !== user.lastIp) {

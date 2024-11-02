@@ -16,7 +16,9 @@ try {
 	await database.collection('reservations').createIndex({ user_id: 1 });
 	await database.collection('reservations').createIndex({ is_reserved: 1 });
 
-	await database.collection('sessionSeats').createIndex({ session_id: 1 });
+	await database
+		.collection('sessionSeats')
+		.createIndex({ session_id: 1, seat_id: 1 }, { unique: true });
 
 	logger.info(`MongoDb migrations complete`);
 } catch (e) {

@@ -25,4 +25,8 @@ export default class MongoDb {
 	close() {
 		this.client.close();
 	}
+
+	startSession() {
+		return this.client.startSession();
+	}
 }

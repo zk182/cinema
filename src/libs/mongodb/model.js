@@ -11,6 +11,10 @@ export default class MongoDbModel {
 		return this.client.collection(this.constructor.collectionName);
 	}
 
+	startSession() {
+		return this.client.startSession();
+	}
+
 	getById(_id, projection) {
 		return this.collection.findOne(
 			{
@@ -24,13 +28,28 @@ export default class MongoDbModel {
 		return this.collection.find({}).toArray();
 	}
 
-	insert(fields) {
+	insertMany(fields, session) {
+		return session
+			? this.collection.insertMany(fields, { session })
+			: this.collection.insertMany(fields);
+	}
+
+	insert(fields, session) {
 		const now = moment().unix();
-		return this.collection.insertOne({
-			...fields,
-			createdAt: now,
-			updatedAt: now
-		});
+		return session
+			? this.collection.insertOne(
+					{
+						...fields,
+						createdAt: now,
+						updatedAt: now
+					},
+					{ session }
+				)
+			: this.collection.insertOne({
+					...fields,
+					createdAt: now,
+					updatedAt: now
+				});
 	}
 
 	upsert() {
