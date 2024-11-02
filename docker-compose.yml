@@ -1,11 +1,9 @@
-version: '3.3'
+version: "3.8"
 
-#
-#  Used for development only
-#
 services:
-   cinemapostgres:
-      container_name: cinemapostgres
+
+   cinema-postgres:
+      container_name: cinema-postgres
       image: postgres:15-alpine
       environment:
          - POSTGRES_USER=root
@@ -13,40 +11,45 @@ services:
          - POSTGRES_DB=cinema
          - TZ=Europe/Madrid
       volumes:
-         - cinemapostgres-data:/var/lib/postgresql/data
+         - cinema-postgres-data:/var/lib/postgresql/data
          - ./src/sql/:/docker-entrypoint-initdb.d
       logging:
          driver: none
       ports:
          - '54328:5432'
 
-   cinemaredis:
-      container_name: cinemaredis
+   cinema-redis:
+      container_name: cinema-redis
       image: redis:5-alpine
       ports:
          - '63798:6379'
       volumes:
-         - cinemaredis-data:/data
+         - cinema-redis-data:/data
       logging:
          driver: none
-
+   
    cinemamongo:
-      container_name: cinemamongodb
-      image: mongo:6.0
-      ports:
-         - "27017:27017"
-      environment:
-         - MONGO_INITDB_ROOT_USERNAME=root
-         - MONGO_INITDB_ROOT_PASSWORD=123456
-      volumes:
-         - cinemamongodb-data:/data/db
-      logging:
-         driver: none
+    container_name: cinema-mongodb
+    image: mongo:7.0
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
+    ports:
+      - 27017:27017
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: echo "try { rs.status() } catch (err) { rs.initiate({_id:'rs0',members:[{_id:0,host:'host.docker.internal:27017'}]}) }" | mongosh --port 27017 --quiet
+      interval: 5s
+      timeout: 30s
+      start_period: 0s
+      retries: 30
+    volumes:
+      - "cinema-mongodb_data:/data/db"
+      - "cinema-mongodb_config:/data/configdb"
 
 volumes:
-   cinemapostgres-data:
+   cinema-mongodb_data:
+   cinema-mongodb_config:
+   cinema-postgres-data:
       driver: local
-   cinemaredis-data:
+   cinema-redis-data:
       driver: local
-   cinemamongodb-data:
-      driver: local   
