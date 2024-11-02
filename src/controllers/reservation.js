@@ -1,9 +1,11 @@
 import MasterController from './master.js';
+import SessionController from './session.js';
+import SeatController from './seat.js';
 
 import ReservationModel from '#src/models/reservation.js';
 import SessionSeatsModel from '#src/models/sessionSeats.js';
 
-import { ResourceNotFound } from '#src/errors/index.js';
+import { BadRequest, ResourceNotFound } from '#src/errors/index.js';
 import { transactionOptions } from '#src/libs/mongodb/helper.js';
 
 class ReservationController extends MasterController {
@@ -22,7 +24,8 @@ class ReservationController extends MasterController {
 	}
 
 	async reserve({ userId, sessionId, seatsId }) {
-		// TODO: chequear que el seatId es de la session
+		await this.checkSeatsBelongToHall(sessionId, seatsId);
+
 		const seats = seatsId.map(seat => ({
 			session_id: sessionId,
 			seat_id: seat
@@ -34,7 +37,7 @@ class ReservationController extends MasterController {
 			await session.withTransaction(async () => {
 				await this.model.insert(
 					{
-						user_id: userId, // TODO
+						user_id: userId,
 						is_reserved: true,
 						seatsId,
 						status: 'reserved',
@@ -57,6 +60,18 @@ class ReservationController extends MasterController {
 			};
 		} finally {
 			await session.endSession();
+		}
+	}
+
+	async checkSeatsBelongToHall(sessionId, seatsId) {
+		const { hallId } = await SessionController.getById(sessionId);
+
+		const hallSeats = await SeatController.getByIds(seatsId);
+
+		const hallIdsSet = new Set(hallSeats.map(seat => seat.hallId));
+
+		if (!hallIdsSet.has(hallId) || hallIdsSet.size !== 1) {
+			throw new BadRequest('Seats are not from hall');
 		}
 	}
 }
