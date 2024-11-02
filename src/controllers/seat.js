@@ -15,6 +15,16 @@ class SeatController extends MasterController {
 
 		return seat;
 	}
+
+	async getSeatsByHallId(hallId) {
+		const seats = await this.model.getByHallId(hallId);
+
+		if (!seats) {
+			throw new ResourceNotFound('Seats not found');
+		}
+
+		return seats;
+	}
 }
 
 export default new SeatController();

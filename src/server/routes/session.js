@@ -19,7 +19,9 @@ SessionRouter.get(
 	'/:sessionId/seats',
 	asyncHandler(async (req, res) => {
 		const { sessionId } = req.params;
-		const session = await SessionController.getBySessionId(Number(sessionId)); // TODO: validate
+		const session = await SessionController.getSeatStatusBySessionId(
+			Number(sessionId)
+		); // TODO: validate
 		return res.json(session);
 	})
 );

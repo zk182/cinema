@@ -6,9 +6,9 @@ export default class ReservationModel extends MongoDbModel {
 	#projectionFields = {
 		id: '$_id',
 		_id: 0,
-		userId: 1,
-		sessionId: 1,
-		seatsId: 1,
+		user_id: 1,
+		session_id: 1,
+		seats_id: 1,
 		reservationDate: 1,
 		status: 1
 	};

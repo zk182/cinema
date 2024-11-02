@@ -22,48 +22,26 @@ class SessionController extends MasterController {
 		return session;
 	}
 
-	async getBySessionId(sessionId) {
-		const session = await this.getById(sessionId, [
-			'hallId',
-			'available_seats_count'
-		]);
-
-		if (!session) {
-			throw new ResourceNotFound('Session not found');
-		}
-
-		const hall = await HallController.getById(session.hallId, [
-			'seatConfiguration',
-			'totalSeats'
-		]);
-
-		if (!hall) {
-			throw new ResourceNotFound('Hall not found');
-		}
-
+	async getSeatStatusBySessionId(sessionId) {
+		const session = await this.getById(sessionId, ['hallId']);
+		const hallConfig = await HallController.getHallConfigByHallId(
+			session.hallId
+		); // TODO: cache this
 		const reservedSeats =
 			await this.sessionSeatsModel.getBySessionId(sessionId);
 
-		return this.generateHallAvailability(
-			hall.seatConfiguration,
-			reservedSeats
-		);
+		return this.generateHallAvailability(hallConfig, reservedSeats);
 	}
 
-	generateHallAvailability(seatConfiguration, reservedSeats) {
-		const { rows, seats_per_row } = seatConfiguration;
-		const seatingChart = Array.from({ length: rows }, () =>
-			new Array(seats_per_row).fill({ reserved: false })
+	generateHallAvailability(hallConfig, reservedSeats) {
+		const reservedSeatIds = new Set(reservedSeats.map(seat => seat.seat_id));
+
+		return hallConfig.map(row =>
+			row.map(seat => ({
+				seat_id: seat.seat_id,
+				reserved: reservedSeatIds.has(seat.seat_id)
+			}))
 		);
-
-		for (const { row, number, seat_id } of reservedSeats) {
-			seatingChart[row - 1][number - 1] = {
-				seatId: seat_id,
-				reserved: true
-			};
-		}
-
-		return seatingChart;
 	}
 }
 

@@ -17,7 +17,6 @@ export const up = async knex => {
 		table.string('language').notNullable();
 		table.time('start_time').notNullable();
 		table.time('end_time').notNullable();
-		table.integer('available_seats_count').notNullable();
 		table.timestamp('created_at').defaultTo(knex.fn.now());
 
 		table.unique(['hall_id', 'start_time']); // Unique index for preventing overlapping sessions

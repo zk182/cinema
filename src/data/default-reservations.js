@@ -1,51 +1,58 @@
 export default [
 	{
-		userId: 1,
-		sessionId: 1,
-		seatsId: [1, 2],
-		reservationDate: new Date(),
-		status: 'reserved'
+		user_id: 1,
+		session_id: 1,
+		seats_id: [1, 2],
+		confirmed_at: new Date(),
+		status: 'reserved',
+		is_reserved: true
 	},
 	{
-		userId: 1,
-		sessionId: 1,
-		seatsId: [3],
-		reservationDate: new Date(),
-		status: 'cancelled'
+		user_id: 1,
+		session_id: 1,
+		seats_id: [3],
+		confirmed_at: new Date(),
+		status: 'cancelled',
+		is_reserved: false
 	},
 	{
-		userId: 2,
-		sessionId: 1,
-		seatsId: [5],
-		reservationDate: new Date(),
-		status: 'reserved'
+		user_id: 2,
+		session_id: 1,
+		seats_id: [5],
+		confirmed_at: new Date(),
+		status: 'reserved',
+		is_reserved: true
 	},
 	{
-		userId: 3,
-		sessionId: 1,
-		seatsId: [15, 16, 17],
-		reservationDate: new Date(),
-		status: 'reserved'
+		user_id: 3,
+		session_id: 1,
+		seats_id: [15, 16, 17],
+		confirmed_at: new Date(),
+		status: 'reserved',
+		is_reserved: true
 	},
 	{
-		userId: 2,
-		sessionId: 2,
-		seatsId: [21, 22],
-		reservationDate: new Date(),
-		status: 'reserved'
+		user_id: 2,
+		session_id: 2,
+		seats_id: [21, 22],
+		confirmed_at: new Date(),
+		status: 'reserved',
+		is_reserved: true
 	},
 	{
-		userId: 3,
-		sessionId: 3,
-		seatsId: [69],
-		reservationDate: new Date(),
-		status: 'reserved'
+		user_id: 3,
+		session_id: 3,
+		seats_id: [69],
+		confirmed_at: new Date(),
+		status: 'reserved',
+		is_reserved: true
 	},
 	{
-		userId: 1,
-		sessionId: 3,
-		seatsId: [70],
-		reservationDate: new Date(),
-		status: 'cancelled'
+		user_id: 1,
+		session_id: 3,
+		seats_id: [70],
+		confirmed_at: new Date(),
+		status: 'cancelled',
+		is_reserved: false
 	}
 ];

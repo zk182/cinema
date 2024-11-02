@@ -9,8 +9,7 @@ export default class SessionSeatsModel extends MongoDbModel {
 		row: 1,
 		session_id: 1,
 		seat_id: 1,
-		number: 1,
-		is_reserved: 1
+		number: 1
 	};
 
 	getByIdPublic(id) {
@@ -24,7 +23,7 @@ export default class SessionSeatsModel extends MongoDbModel {
 	async getBySessionId(sessionId) {
 		return this.collection
 			.find({ session_id: sessionId })
-			.project(this.#projectionFields)
+			.project({ seat_id: 1, _id: 0 })
 			.toArray();
 	}
 }

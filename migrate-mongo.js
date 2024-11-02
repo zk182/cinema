@@ -14,6 +14,7 @@ try {
 
 	await database.collection('reservations').createIndex({ session_id: 1 });
 	await database.collection('reservations').createIndex({ user_id: 1 });
+	await database.collection('reservations').createIndex({ is_reserved: 1 });
 
 	await database.collection('sessionSeats').createIndex({ session_id: 1 });
 
