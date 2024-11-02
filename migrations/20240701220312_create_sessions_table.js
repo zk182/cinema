@@ -11,8 +11,12 @@ export const up = async knex => {
 			.inTable('halls')
 			.onDelete('CASCADE');
 		table.string('movie_name').notNullable();
-		table.timestamp('start_time').notNullable();
-		table.timestamp('end_time').notNullable();
+		table.string('rating').notNullable();
+		table.string('genre').nullable();
+		table.string('projection_format').notNullable();
+		table.string('language').notNullable();
+		table.time('start_time').notNullable();
+		table.time('end_time').notNullable();
 		table.integer('available_seats_count').notNullable();
 		table.timestamp('created_at').defaultTo(knex.fn.now());
 

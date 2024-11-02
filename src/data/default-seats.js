@@ -1,67 +1,25 @@
 export default [
-	{
-		id: 1,
+	...Array.from({ length: 20 }, (_, i) => ({
+		id: i + 1,
 		hall_id: 1,
-		row: 1,
-		number: 1,
-		type: 'vip',
-		available: true
-	},
-	{
-		id: 2,
-		hall_id: 1,
-		row: 1,
-		number: 2,
-		available: true
-	},
-	{
-		id: 3,
-		hall_id: 1,
-		row: 1,
-		number: 3,
-		available: false
-	},
-	{
-		id: 4,
-		hall_id: 1,
-		row: 2,
-		number: 1,
-		type: 'vip',
-		available: true
-	},
-	{
-		id: 5,
-		hall_id: 1,
-		row: 2,
-		number: 2,
-		available: true
-	},
-	{
-		id: 6,
-		hall_id: 1,
-		row: 2,
-		number: 3,
-		available: false
-	},
-	{
-		id: 7,
-		hall_id: 1,
-		row: 3,
-		number: 1,
-		available: true
-	},
-	{
-		id: 8,
-		hall_id: 1,
-		row: 3,
-		number: 2,
-		available: true
-	},
-	{
-		id: 9,
-		hall_id: 1,
-		row: 3,
-		number: 3,
-		available: true
-	}
+		row: Math.floor(i / 5) + 1,
+		number: (i % 5) + 1,
+		type: i % 5 === 0 || i % 5 === 1 ? 'vip' : undefined
+	})),
+
+	...Array.from({ length: 40 }, (_, i) => ({
+		id: i + 21,
+		hall_id: 2,
+		row: Math.floor(i / 5) + 1,
+		number: (i % 5) + 1,
+		type: i % 5 === 0 || i % 5 === 1 ? 'vip' : undefined
+	})),
+
+	...Array.from({ length: 100 }, (_, i) => ({
+		id: i + 61,
+		hall_id: 3,
+		row: Math.floor(i / 10) + 1,
+		number: (i % 10) + 1,
+		type: i % 10 === 0 || i % 10 === 1 ? 'vip' : undefined
+	}))
 ];

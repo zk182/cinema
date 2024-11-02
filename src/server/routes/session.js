@@ -16,6 +16,15 @@ SessionRouter.get(
 );
 
 SessionRouter.get(
+	'/:sessionId/seats',
+	asyncHandler(async (req, res) => {
+		const { sessionId } = req.params;
+		const session = await SessionController.getBySessionId(Number(sessionId)); // TODO: validate
+		return res.json(session);
+	})
+);
+
+SessionRouter.get(
 	'/seats',
 	asyncHandler(async (req, res) => {
 		const sessionsSeats = await SessionSeatsController.list();

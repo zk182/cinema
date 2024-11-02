@@ -1,29 +1,29 @@
 export default [
 	{
 		id: 1,
-		name: 'Atmos',
+		name: 'Special Atmos',
 		seat_configuration: {
-			rows: 10,
-			seats_per_row: 20
+			rows: 4,
+			seats_per_row: 5
 		},
-		total_seats: 200
+		total_seats: 20
 	},
 	{
 		id: 2,
-		name: 'CineMundo',
+		name: 'World',
 		seat_configuration: {
 			rows: 8,
-			seats_per_row: 15
+			seats_per_row: 5
 		},
-		total_seats: 120
+		total_seats: 40
 	},
 	{
 		id: 3,
-		name: 'Espacial',
+		name: 'Cordoba',
 		seat_configuration: {
-			rows: 12,
-			seats_per_row: 25
+			rows: 10,
+			seats_per_row: 10
 		},
-		total_seats: 300
+		total_seats: 100
 	}
 ];

@@ -11,11 +11,9 @@
       "check-style": "prettier --check . && eslint .",
       "format": "prettier . --write && eslint . --fix",
       "init-database": "node database.js",
-      "migrate": "node migrate.js",
-      "migrate-mongo": "node migrate-mongo.js",
-      "data-loader": "node data-loader.js",
-      "setup-sql-database": "npm run migrate && npm run data-loader",
-      "setup-nosql-database": "npm run migrate-mongo"
+      "setup-sql-database": "node migrate.js && node data-loader.js",
+      "setup-nosql-database": "node migrate-mongo.js",
+      "setup": "npm run setup-sql-database && npm run setup-nosql-database"
    },
    "author": "Nicolas Battaglia",
    "license": "ISC",

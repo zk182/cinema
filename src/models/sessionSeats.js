@@ -8,6 +8,7 @@ export default class SessionSeatsModel extends MongoDbModel {
 		_id: 0,
 		row: 1,
 		session_id: 1,
+		seat_id: 1,
 		number: 1,
 		is_reserved: 1
 	};
@@ -17,11 +18,13 @@ export default class SessionSeatsModel extends MongoDbModel {
 	}
 
 	async list() {
-		const query = this.collection
-			.find({})
+		return this.collection.find({}).project(this.#projectionFields).toArray();
+	}
+
+	async getBySessionId(sessionId) {
+		return this.collection
+			.find({ session_id: sessionId })
 			.project(this.#projectionFields)
 			.toArray();
-
-		return query;
 	}
 }

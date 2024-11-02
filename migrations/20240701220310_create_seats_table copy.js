@@ -15,7 +15,6 @@ export const up = async knex => {
 		table
 			.enum('type', ['vip', 'comfortable', 'regular'])
 			.defaultTo('regular');
-		table.boolean('available').defaultTo(true);
 	});
 };
 

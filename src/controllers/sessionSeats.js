@@ -15,6 +15,16 @@ class SessionSeatsController extends MasterController {
 
 		return sessionSeats;
 	}
+
+	async getBySessionId(sessionId) {
+		const session = await this.model.getBySessionId(sessionId);
+
+		if (!session) {
+			throw new ResourceNotFound('Session not found');
+		}
+
+		return session;
+	}
 }
 
 export default new SessionSeatsController();
