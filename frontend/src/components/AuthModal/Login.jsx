@@ -107,7 +107,7 @@ export function Login() {
 								</Typography>
 							)}
 
-							<Box>
+							{/* <Box>
 								<Typography color="text.secondary" fontWeight="semi">
 									{t('login.dontHaveAnAccount')}{' '}
 									<Typography
@@ -123,7 +123,7 @@ export function Login() {
 										{t('common.signUp')}
 									</Typography>
 								</Typography>
-							</Box>
+							</Box> */}
 						</Stack>
 					</Stack>
 				</Box>

@@ -24,13 +24,13 @@ export function LoginButtons({ direction = 'row', spacing = 2, ...props }) {
 			>
 				{t('common.login')}
 			</Button>
-			<Button
+			{/* <Button
 				fullWidth={direction === 'column'}
 				variant="outlined"
 				onClick={() => dispatch(setAuthModalType(AUTH_MODAL_TYPES.SIGN_UP))}
 			>
 				{t('common.signUp')}
-			</Button>
+			</Button> */}
 		</Stack>
 	);
 }
