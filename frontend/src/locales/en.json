@@ -1,0 +1,296 @@
+{
+	"changePassword": {
+		"confirm": "Confirm password",
+		"description": "Choose a secure and easy to remember password for your account. Remember that:",
+		"invalidToken": "Oops! Looks like the password recovery link has expired. Please initiate the password reset process again to receive a new link.",
+		"repeatPassword": "Retype your password",
+		"requirements": {
+			"combineLetters": "Combine upper and lower case letters, numbers and symbols.",
+			"minCharacters": "It must be at least {{value}} characters.",
+			"noPersonalInfo": "Do not use personal information such as your name, date of birth or phone number."
+		},
+		"successMessage": "Your password has been changed successfully.\nYou can now log in.",
+		"successTitle": "Congratulations!",
+		"title": "New password"
+	},
+	"common": {
+		"accept": "Accept",
+		"account": "Account",
+		"active": "Active",
+		"add": "Add",
+		"back": "Back",
+		"buyCredits": "Buy credits",
+		"cancel": "Cancel",
+		"clickHere": "Click here",
+		"close": "Close",
+		"continue": "Continue",
+		"createdAt": "Created at {{value}}",
+		"createNewImage": "Create new image",
+		"credits": "Credits",
+		"currency": "Currency",
+		"delete": "Delete",
+		"done": "Done",
+		"download": "Download",
+		"downloadHD": "Download HD",
+		"downloadHQ": "Download HD",
+		"edit": "Edit",
+		"gridView": "Grid view",
+		"language": "Language",
+		"listView": "List view",
+		"login": "Log In",
+		"monthly": "monthly",
+		"next": "Next",
+		"once": "once",
+		"or": "or",
+		"paid": "Paid",
+		"paymentMethod": "Payment method",
+		"pending": "Pending",
+		"plan": "Plan",
+		"refresh": "Refresh",
+		"reset": "Reset",
+		"retry": "Retry",
+		"save": "Save",
+		"seeLess": "See less",
+		"seeMore": "See more",
+		"signIn": "Sign In",
+		"signOut": "Sign Out",
+		"signUp": "Sign Up",
+		"start": "Start",
+		"subscribe": "Subscribe",
+		"subscribeNow": "Subscribe now",
+		"subscription": "Subscription",
+		"subscriptionCredits": "Subscription Credits",
+		"totalCredits": "Total Credits",
+		"trial": "Trial",
+		"update": "Update"
+	},
+	"contact": {
+		"form": {
+			"dropzone": {
+				"orDrop": "or drop a file (optional)",
+				"upload": "Upload image"
+			},
+			"fields": {
+				"email": {
+					"placeholder": "Email *"
+				},
+				"image": {
+					"validations": {
+						"fileFormat": "invalid file format",
+						"fileSize": "The maximum size allowed is {{size}}Mb."
+					}
+				},
+				"message": {
+					"placeholder": "Message *"
+				},
+				"reason": {
+					"options": {
+						"type1": "Technical question",
+						"type2": "Administrative question",
+						"type3": "Other"
+					},
+					"placeholder": "Reason *"
+				},
+				"subject": {
+					"placeholder": "Subject *"
+				}
+			},
+			"footer": "To learn more about how we handle your personal data, take a look at our",
+			"privacyPolicy": "Privacy policy",
+			"submit": "Submit",
+			"successMessage": "Your message has been sent! Our team is working so that you receive an answer as soon as possible.",
+			"title": "Fill out the form and we will contact you as soon as possible."
+		}
+	},
+	"copyright": "{{year}} © {{company}}, Spain",
+	"dashboard": {
+		"placeholder": {
+			"noImage": "No image?\nTry one of these:"
+		}
+	},
+	"errors": {
+		"captchaVerificationFailed": "Captcha verification failed.",
+		"forbidden": "You don't have the right permissions to access the content.",
+		"generic": "Oops! An error occurred.",
+		"invalidUser": "The entered email does not have an account.",
+		"tooManyRequests": "You have reached the request limit, please try again in 1 minute",
+		"userAlreadyExists": "The email/username is already registered."
+	},
+	"home": {
+		"hero": {
+			"disclaimer": "You agree to our <strong>Terms of Service</strong>. For more information on how we use your personal data, see our <strong>Privacy Policy</strong>.",
+			"subheading": "Book your seat today!",
+			"title": "Cinema"
+		}
+	},
+	"login": {
+		"credentialsError": "The username and/or password is incorrect",
+		"description": "Log in with your email.",
+		"dontHaveAnAccount": "Don't have an account?",
+		"fields": {
+			"email": {
+				"label": "Email",
+				"placeholder": "name@email.com"
+			},
+			"username": {
+				"label": "Username",
+				"placeholder": "Type your username here"
+			},
+			"password": {
+				"label": "Password",
+				"placeholder": "Type your password here"
+			}
+		},
+		"forgotPassword": "Forgot your password?",
+		"title": "Welcome back again!"
+	},
+	"myAccount": {
+		"changePassword": {
+			"fields": {
+				"password": {
+					"label": "Password",
+					"placeholder": "Type your new password here"
+				}
+			},
+			"submit": "Save changes",
+			"success": "Password successfully updated",
+			"title": "Change password"
+		},
+		"contactInformation": {
+			"fields": {
+				"city": {
+					"label": "City",
+					"placeholder": "your city"
+				},
+				"email": {
+					"label": "Email",
+					"placeholder": "name@email.com"
+				},
+				"username": {
+					"label": "Username",
+					"placeholder": "username"
+				},
+				"firstName": {
+					"label": "First name",
+					"placeholder": "Jane"
+				},
+				"lastName": {
+					"label": "Last name",
+					"placeholder": "Doe"
+				}
+			},
+			"submit": "Save changes",
+			"success": "Contact information successfully updated",
+			"title": "Contact information"
+		},
+		"currencyUpdateSuccess": "Currency successfully updated",
+		"generalInformation": "General information",
+		"languageUpdateSuccess": "Language successfully updated",
+		"taxInformation": {
+			"fields": {
+				"address": {
+					"label": "Address",
+					"placeholder": "your address"
+				},
+				"city": {
+					"label": "City",
+					"placeholder": "your city"
+				},
+				"companyName": {
+					"label": "Company name",
+					"placeholder": ""
+				},
+				"country": {
+					"label": "Country",
+					"placeholder": ""
+				},
+				"email": {
+					"label": "Email",
+					"placeholder": "name@email.com"
+				},
+				"firstName": {
+					"label": "First name",
+					"placeholder": "Jane"
+				},
+				"lastName": {
+					"label": "Last name",
+					"placeholder": "Doe"
+				},
+				"taxId": {
+					"label": "Tax ID",
+					"placeholder": ""
+				},
+				"type": {
+					"company": "Company",
+					"private": "Private"
+				},
+				"vatnumber": {
+					"label": "VAT",
+					"placeholder": ""
+				},
+				"zipCode": {
+					"label": "Zip Code",
+					"placeholder": "your zip code"
+				}
+			},
+			"submit": "Save changes",
+			"success": "Tax information successfully updated",
+			"title": "Tax information"
+		}
+	},
+	"pageTitles": {
+		"contact": "Contact us",
+		"cookiesPolicy": "Cookies Policy",
+		"editor": "Editor",
+		"faq": "Frequently Asked Questions",
+		"myAccount": "My account",
+		"myImages": "My images",
+		"notFound": "Page not found",
+		"cinema": "Cinema",
+		"termsAndConditions": "Terms and Conditions"
+	},
+	"plans": {
+		"creditsPlan": "{{quantity}} credits",
+		"paymentMethods": "Accepted payment methods",
+		"trial": {
+			"name": "7 Days Trial"
+		}
+	},
+	"pricing": {
+		"currencyLabel": "Currency: {{value}}",
+		"hero": {
+			"subheading": "1 image = 1 credit (or less)",
+			"title": "Get Full Resolution Images"
+		},
+		"subscriptionPlan": "Subscription Plan",
+		"trial": {
+			"description": "Start 7 days free trial.\nRecommended for personal use and evaluation.",
+			"title": "7 Days Trial"
+		}
+	},
+	"recoverPassword": {
+		"description": "Enter your email address below and we will send you a code to log in and reset your password.",
+		"remembered": "Remembered it?",
+		"reset": "Reset password ",
+		"successMessage": "An email has been sent with further instructions. Follow the steps to create a new password and be sure to check your inbox and spam folder.",
+		"title": "Recover password"
+	},
+	"signUp": {
+		"alreadyHaveAnAccount": "Already have an account?",
+		"successMessage": "Your account has been successfully created.\n",
+		"termsAndConditions": "By creating an account, you acknowledge that you have read and accept the terms of use and privacy policy.",
+		"title": "Taking care of your mental health",
+		"welcome": "Welcome!"
+	},
+	"validations": {
+		"mixed": {
+			"required": "Required field"
+		},
+		"samePassword": "Passwords must match",
+		"string": {
+			"email": "Email not valid",
+			"max": "Must be at most ${max} character",
+			"min": "Must be at least ${min} characters\n"
+		}
+	}
+}
