@@ -6,9 +6,9 @@ const SESSION_ID = 5;
 const SEATS_TO_RESERVE = JSON.stringify({ seatsId: [16, 17, 18, 19, 20] });
 const CONCURRENT_REQUESTS = 100;
 
-const TEST_COOKIE = // may be changed based on server conditions, but you can insert yours here to test
+const TEST_COOKIE = // place your cookie here
 	// eslint-disable-next-line max-len
-	'cinema.user=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidHlwZSI6InNlc3Npb24iLCJpYXQiOjE3MzA2Njg1NjEsImV4cCI6MTczMDY3NTc2MX0.7NRU7DVobqtmvtQYDs5Yi7Pzoo3qk6vUEFfLcE8dKBA';
+	'cinema.user=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidHlwZSI6InNlc3Npb24iLCJpYXQiOjE3MzA2NzI5NzcsImV4cCI6MTczMDY4MDE3N30.0p26uf8x6zK2pXRDEbgUujF7DETf57Vu8R5yO456FwM';
 
 function reserveSeat(userId) {
 	return new Promise((resolve, reject) => {

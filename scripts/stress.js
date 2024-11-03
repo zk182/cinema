@@ -8,8 +8,8 @@ const PORT = 3028;
 const SESSION_ID = 3;
 const CONCURRENT_REQUESTS = 500;
 
-const TEST_COOKIE =
-	'cinema.user=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidHlwZSI6InNlc3Npb24iLCJpYXQiOjE3MzA2Njg1NjEsImV4cCI6MTczMDY3NTc2MX0.7NRU7DVobqtmvtQYDs5Yi7Pzoo3qk6vUEFfLcE8dKBA';
+const TEST_COOKIE = // place your cookie here
+	'cinema.user=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidHlwZSI6InNlc3Npb24iLCJpYXQiOjE3MzA2NzI5NzcsImV4cCI6MTczMDY4MDE3N30.0p26uf8x6zK2pXRDEbgUujF7DETf57Vu8R5yO456FwM';
 
 function checkSeats(userId) {
 	return new Promise(resolve => {
@@ -24,6 +24,7 @@ function checkSeats(userId) {
 		};
 
 		const req = http.request(options, res => {
+			// eslint-disable-next-line no-unused-vars
 			let data = '';
 			const startTime = Date.now();
 

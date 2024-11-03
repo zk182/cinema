@@ -1,5 +1,8 @@
 # KPIS
 
+In order to test them you need to get a cookie from any valid request and put it under `TEST_COOKIE` for
+every script you test
+
 ## Stress test over most expensive endpoint should have Failure rate < 15% with 500 concurrent requests
 
 In order to test run
@@ -63,4 +66,40 @@ All requests have been processed.
 Average response time: 0.05 ms
 Failed requests: 71
 Failure rate: 8.88%
+```
+
+
+### Success Rate over 80% with 500 concurrent users
+
+In order to test run
+
+```
+npm run test:success
+```
+
+
+### Benchmark
+
+Results with 500 concurrent requests
+
+```
+Success rate: 100.00% (500 de 500 succeded)
+```
+
+### Error Rate under 10% with 500 concurrent users
+
+In order to test run
+
+```
+npm run test:errors
+```
+
+
+### Benchmark
+
+Results with 500 concurrent requests
+
+```
+Error rate: 0.00% (0 de 500 solicitudes fallidas)
+Error breakdown by code: {}
 ```
