@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
@@ -11,7 +12,7 @@ import {
 } from '@mui/material';
 
 import SessionModel from '@/models/session';
-import { showError, showSuccess } from '@/utils';
+import { showError } from '@/utils';
 import { Card } from '@/components/Card';
 import CinemaBooking from '@/components/Cinema/CinemaBooking';
 
@@ -19,8 +20,6 @@ export function Dashboard() {
 	const { loggedIn } = useSelector(state => state.auth);
 	const [sessions, setSessions] = useState([]);
 	const [selectedSession, setSelectedSession] = useState('');
-	const [layout, setLayout] = useState(null);
-	const [refreshData, setRefreshData] = useState(false);
 
 	useEffect(() => {
 		const fetchSessions = async () => {
@@ -33,28 +32,11 @@ export function Dashboard() {
 		};
 
 		fetchSessions();
-	}, [loggedIn, refreshData]);
-
-	useEffect(() => {
-		const fetchLayout = async () => {
-			if (selectedSession) {
-				try {
-					const sessionLayout =
-						await SessionModel.getLayout(selectedSession);
-					setLayout(sessionLayout);
-				} catch (error) {
-					showError('Error fetching layout:', error);
-				}
-			}
-		};
-
-		fetchLayout();
-	}, [selectedSession]);
+	}, [loggedIn]);
 
 	const handleSessionChange = event => {
 		const sessionId = event.target.value;
 		setSelectedSession(sessionId);
-		setLayout(null);
 	};
 
 	const selectedSessionDetails = sessions.find(s => s.id === selectedSession);
@@ -98,7 +80,7 @@ export function Dashboard() {
 				</FormControl>
 			</Stack>
 
-			{selectedSessionDetails && layout && (
+			{selectedSessionDetails && (
 				<Stack
 					alignItems="center"
 					direction="row"
@@ -106,7 +88,7 @@ export function Dashboard() {
 					py={5}
 					spacing={4}
 				>
-					<CinemaBooking layout={layout} sessionId={selectedSession} />
+					<CinemaBooking sessionId={selectedSession} />
 				</Stack>
 			)}
 		</Card>

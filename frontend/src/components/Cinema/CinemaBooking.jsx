@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { useState, useEffect } from 'react';
 import './CinemaBooking.css';
 
@@ -6,9 +7,26 @@ import SessionModel from '@/models/session';
 import { Button } from '@mui/material';
 import { showError, showSuccess } from '@/utils';
 
-function CinemaBooking({ layout, sessionId }) {
+function CinemaBooking({ sessionId }) {
 	const [selectedSeats, setSelectedSeats] = useState([]);
 	const [reservedSeats, setReservedSeats] = useState([]);
+	const [layout, setLayout] = useState(null);
+	const [refreshData, setRefreshData] = useState(false);
+
+	useEffect(() => {
+		const fetchLayout = async () => {
+			if (sessionId) {
+				try {
+					const sessionLayout = await SessionModel.getLayout(sessionId);
+					setLayout(sessionLayout);
+				} catch (error) {
+					showError('Error fetching layout:', error);
+				}
+			}
+		};
+
+		fetchLayout();
+	}, [sessionId, refreshData]);
 
 	useEffect(() => {
 		if (layout) {
@@ -39,8 +57,9 @@ function CinemaBooking({ layout, sessionId }) {
 	const handleReserve = async () => {
 		try {
 			await SessionModel.reserve(sessionId, selectedSeats);
-			showSuccess('Successfull Reserve');
+			showSuccess('Successful Reservation');
 			setSelectedSeats([]);
+			setRefreshData(prev => !prev);
 		} catch (error) {
 			showError('There is a problem with your reserve, please try again');
 		}
@@ -48,27 +67,28 @@ function CinemaBooking({ layout, sessionId }) {
 
 	return (
 		<div className="cinema">
-			{layout.map((row, rowIndex) => (
-				<div className="row" key={rowIndex}>
-					{row.map((seat, seatIndex) => {
-						const seatId = seat.seat_id;
-						const seatNumber = rowIndex * row.length + seatIndex + 1;
-						const isSelected = selectedSeats.includes(seatId);
-						const isReserved = reservedSeats.includes(seatId);
+			{layout &&
+				layout.map((row, rowIndex) => (
+					<div className="row" key={rowIndex}>
+						{row.map((seat, seatIndex) => {
+							const seatId = seat.seat_id;
+							const seatNumber = rowIndex * row.length + seatIndex + 1;
+							const isSelected = selectedSeats.includes(seatId);
+							const isReserved = reservedSeats.includes(seatId);
 
-						return (
-							<div
-								key={seatId}
-								className={`seat ${isSelected ? 'selected' : ''} ${isReserved ? 'reserved' : ''}`}
-								onClick={() => toggleSeat(seatId)}
-							>
-								{seatNumber}
-								{isReserved && <span style={{ color: '#fff' }} />}
-							</div>
-						);
-					})}
-				</div>
-			))}
+							return (
+								<div
+									key={seatId}
+									className={`seat ${isSelected ? 'selected' : ''} ${isReserved ? 'reserved' : ''}`}
+									onClick={() => toggleSeat(seatId)}
+								>
+									{seatNumber}
+									{isReserved && <span style={{ color: '#fff' }} />}
+								</div>
+							);
+						})}
+					</div>
+				))}
 
 			<Button
 				onClick={handleReserve}
