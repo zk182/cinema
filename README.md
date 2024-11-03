@@ -39,6 +39,9 @@ you may also check [.env example](.env.example)
 docker compose up
 ```
 
+Make sure to have this [keyfile](./keyfile) at root
+with permissions to read
+
 In case you have any problems connecting to the mongodb replica set,
 like resolving `host.docker.internal`, add 
 `127.0.0.1 host.docker.internal`
@@ -50,11 +53,20 @@ In another shell run
 ```
 nvm use
 npm install
-npm run setup-database
+npm run setup
 npm start
 ```
 
-This will get you a default set of users, cinema sessions and reservations to test 
+This will get you a default set of `users`, cinema `sessions` and `reservations` to test 
+
+`email`:u1@test.com
+`password`: 123
+
+`email`:u2@test.com
+`password`: 123
+
+`email`:u3@test.com
+`password`: 123
 
 # frontend
 
@@ -67,7 +79,28 @@ npm install
 npm start
 ```
 
+# architecture design
+
+- [Architecture](documentation/Architecture.md)
+
+# concurrency
+
+- [Concurrency](documentation/Concurreny.md)
+
+- To test concurrency also check [script](./scripts//concurrency.js)
+
+`npm run test:concurrency`
+
+# happy paths
+
+- [Happy Path](documentation/HappyPath.md)
+
+# kpis
+
+- [Kpis](documentation/KPIS.md)
+
 # postman
 
 There's a postman collection in [postman/cinema.json](postman/cinema.json)
 in case you test the endpoints with this tool
+

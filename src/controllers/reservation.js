@@ -54,6 +54,12 @@ class ReservationController extends MasterController {
 				error: null
 			};
 		} catch (error) {
+			if (error.code === 11000) {
+				return {
+					success: false,
+					error: 'Sorry, some seats have already been reserved. Please choose different seats.'
+				};
+			}
 			return {
 				success: false,
 				error: error.message
