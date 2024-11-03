@@ -42,8 +42,8 @@ export default [
 	{
 		movie_name: 'La historia sin fin',
 		hall_id: 1,
-		start_time: '17:00',
-		end_time: '18:30',
+		start_time: '14:00',
+		end_time: '15:30',
 		genre: 'Adventure, Drama, Family',
 		rating: 'PG',
 		language: 'German',

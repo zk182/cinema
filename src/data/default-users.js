@@ -1,20 +1,20 @@
 export default [
 	{
 		username: 'Juan Pérez',
-		email: 'juan.perez@example.com',
-		password: '$2b$10$2l.p4Xe7XZG6Vl.Q1e7BGOALAWQZGWaKojxfiSdvkwWt6wnrxcJBu',
+		email: 'u1@test.com',
+		password: '$2b$10$xeO4/lt5M9k23Oc2gXSLXupe16J6RgR4BOrJ24LC9lPtQ1rSopcXq',
 		country: 'ar'
 	},
 	{
 		username: 'María González',
-		email: 'maria.gonzalez@example.com',
-		password: '$2b$10$vhVaCVH4pYcVc6Q.CigdguBPgpmpWFwNoNXgj32Q.NLik4bxHIuyq',
+		email: 'u2@test.com',
+		password: '$2b$10$xeO4/lt5M9k23Oc2gXSLXupe16J6RgR4BOrJ24LC9lPtQ1rSopcXq',
 		country: 'es'
 	},
 	{
 		username: 'Carlos López',
-		email: 'carlos.lopez@example.com',
-		password: '$2b$10$OkYuM9PYjUIDVz8j6x98u.9/CXhviqAO1LnE0o.BUtwMkt/QCzEdS',
+		email: 'u3@test.com',
+		password: '$2b$10$xeO4/lt5M9k23Oc2gXSLXupe16J6RgR4BOrJ24LC9lPtQ1rSopcXq',
 		country: 'us'
 	}
 ];

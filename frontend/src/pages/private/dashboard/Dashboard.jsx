@@ -73,7 +73,8 @@ export function Dashboard() {
 						</MenuItem>
 						{sessions.map(session => (
 							<MenuItem key={session.id} value={session.id}>
-								{session.movieName} - {session.startTime}
+								Cinema {session.hallId} - {session.movieName} -{' '}
+								{session.startTime}
 							</MenuItem>
 						))}
 					</Select>
