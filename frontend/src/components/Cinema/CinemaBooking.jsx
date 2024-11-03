@@ -65,6 +65,18 @@ function CinemaBooking({ sessionId }) {
 		}
 	};
 
+	const handleReset = async () => {
+		try {
+			await SessionModel.reset();
+			showSuccess('Session reset successfully');
+			setRefreshData(prev => !prev);
+		} catch (error) {
+			showError(
+				'There was a problem resetting the session, please try again'
+			);
+		}
+	};
+
 	return (
 		<div className="cinema">
 			{layout &&
@@ -99,11 +111,26 @@ function CinemaBooking({ sessionId }) {
 					border: 'none',
 					padding: '10px 20px',
 					cursor: selectedSeats.length === 0 ? 'not-allowed' : 'pointer',
-					marginTop: '10px'
+					marginTop: '20px'
 				}}
 			>
 				Book Seats
 			</Button>
+
+			<div style={{ position: 'absolute', bottom: '20px', right: '20px' }}>
+				<Button
+					onClick={handleReset}
+					style={{
+						backgroundColor: 'red',
+						color: 'white',
+						border: 'none',
+						padding: '10px 20px',
+						cursor: 'pointer'
+					}}
+				>
+					Reset
+				</Button>
+			</div>
 		</div>
 	);
 }

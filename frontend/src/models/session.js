@@ -13,6 +13,10 @@ class SessionModel extends BaseModel {
 		const body = { seatsId: selectedSeats };
 		return this.post(`/${id}/seats/reserve`, { body });
 	}
+
+	async reset() {
+		return this.post('/reset');
+	}
 }
 
 export default new SessionModel('/sessions');
