@@ -59,11 +59,11 @@ npm start
 
 This will get you a default set of `users`, cinema `sessions` and `reservations` to test 
 
-- email:u1@test.com
+- email: u1@test.com
 
-- email:u2@test.com
+- email: u2@test.com
 
-- email:u3@test.com
+- email: u3@test.com
 
 the three of them with same password: 123
 
