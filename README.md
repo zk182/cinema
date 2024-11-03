@@ -1,6 +1,6 @@
-# cinema
+# Cinema
 
-# install
+# Install
 
 in root folder, create an .env with this structure
 ```
@@ -33,16 +33,16 @@ MAIN_DOMAIN=localhost
 
 you may also check [.env example](.env.example)
 
-# start
+# Start
 
 ```
 docker compose up
 ```
 
-Make sure to have this [keyfile](./keyfile) at root
+- Make sure to have this [keyfile](./keyfile) at root
 with permissions to read
 
-In case you have any problems connecting to the mongodb replica set,
+- In case you have any problems connecting to the mongodb replica set,
 like resolving `host.docker.internal`, add 
 `127.0.0.1 host.docker.internal`
 in your `/etc/hosts` file
@@ -59,16 +59,15 @@ npm start
 
 This will get you a default set of `users`, cinema `sessions` and `reservations` to test 
 
-`email`:u1@test.com
-`password`: 123
+- email:u1@test.com
 
-`email`:u2@test.com
-`password`: 123
+- email:u2@test.com
 
-`email`:u3@test.com
-`password`: 123
+- email:u3@test.com
 
-# frontend
+the three of them with same password: 123
+
+# Frontend
 
 In another shell
 
@@ -79,28 +78,27 @@ npm install
 npm start
 ```
 
-# architecture design
+# Architecture Design
 
 - [Architecture](documentation/Architecture.md)
 
-# concurrency
+# Concurrency
 
 - [Concurrency](documentation/Concurreny.md)
 
-- To test concurrency also check [script](./scripts//concurrency.js)
+To test concurrency also check [script](./scripts//concurrency.js) & 
+run `npm run test:concurrency`
 
-`npm run test:concurrency`
-
-# happy paths
+# Happy Path
 
 - [Happy Path](documentation/HappyPath.md)
 
-# kpis
+# KPIS
 
-- [Kpis](documentation/KPIS.md)
+- [KPIS](documentation/KPIS.md)
 
-# postman
+# Postman
 
-There's a postman collection in [postman/cinema.json](postman/cinema.json)
+There's a postman collection in [postman/cinema.json](postman/Cinema.json)
 in case you test the endpoints with this tool
 
