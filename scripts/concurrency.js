@@ -4,7 +4,7 @@ const BASE_URL = 'localhost';
 const PORT = 3028;
 const SESSION_ID = 5;
 const SEATS_TO_RESERVE = JSON.stringify({ seatsId: [16, 17, 18, 19, 20] });
-const CONCURRENT_REQUESTS = 10;
+const CONCURRENT_REQUESTS = 100;
 
 const TEST_COOKIE = // may be changed based on server conditions, but you can insert yours here to test
 	// eslint-disable-next-line max-len

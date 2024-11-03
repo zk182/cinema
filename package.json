@@ -14,7 +14,8 @@
       "setup-sql-database": "node migrate.js && node data-loader.js",
       "setup-nosql-database": "node migrate-mongo.js",
       "setup": "npm run setup-sql-database && npm run setup-nosql-database",
-      "test:concurrency": "node scripts/concurrency.js"
+      "test:concurrency": "node scripts/concurrency.js",
+      "test:stress": "node scripts/stress.js"
    },
    "author": "Nicolas Battaglia",
    "license": "ISC",
