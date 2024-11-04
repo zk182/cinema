@@ -3,13 +3,16 @@
 In order to test them you need to get a cookie from any valid request and put it under `TEST_COOKIE` for
 every script you test
 
-- **Failure Rate on expensive calculation**:
+- **Failure Rate on expensive calculation**
 
-- **Success Rate**:
+- **Success Rate**
 
-- **Error Rate**:
+- **Error Rate**
 
-### Stress test over most expensive endpoint should have Failure rate < 15% with 500 concurrent requests
+
+# Failure Rate on expensive calculation
+
+Stress test over most expensive endpoint should have Failure rate < 15% with 500 concurrent requests
 
 In order to test run
 
@@ -17,7 +20,7 @@ In order to test run
 npm run test:stress
 ```
 
-### Benchmark
+## Benchmark
 
 ```
 Environment Details:
@@ -74,8 +77,9 @@ Failed requests: 71
 Failure rate: 8.88%
 ```
 
+# Success Rate
 
-### Success Rate over 80% with 500 concurrent users
+Success Rate should perform over 80% with 500 concurrent users
 
 In order to test run
 
@@ -84,7 +88,7 @@ npm run test:success
 ```
 
 
-### Benchmark
+## Benchmark
 
 Results with 500 concurrent requests
 
@@ -92,7 +96,10 @@ Results with 500 concurrent requests
 Success rate: 100.00% (500 de 500 succeded)
 ```
 
-### Error Rate under 10% with 500 concurrent users
+
+# Error Rate on expensive calculation
+
+Error Rate should perform under 10% with 500 concurrent users
 
 In order to test run
 
@@ -101,7 +108,7 @@ npm run test:errors
 ```
 
 
-### Benchmark
+## Benchmark
 
 Results with 500 concurrent requests
 
