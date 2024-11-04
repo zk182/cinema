@@ -33,7 +33,7 @@ export default [
 		movie_name: 'Shrek',
 		hall_id: 2,
 		start_time: '10:00',
-		end_time: '15:00',
+		end_time: '11:00',
 		genre: 'Animation, Adventure, Comedy',
 		rating: 'PG',
 		language: 'English',

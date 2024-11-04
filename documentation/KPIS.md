@@ -3,7 +3,13 @@
 In order to test them you need to get a cookie from any valid request and put it under `TEST_COOKIE` for
 every script you test
 
-## Stress test over most expensive endpoint should have Failure rate < 15% with 500 concurrent requests
+- **Failure Rate on expensive calculation**:
+
+- **Success Rate**:
+
+- **Error Rate**:
+
+### Stress test over most expensive endpoint should have Failure rate < 15% with 500 concurrent requests
 
 In order to test run
 

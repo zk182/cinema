@@ -97,6 +97,10 @@ run `npm run test:concurrency`
 
 - [KPIS](documentation/KPIS.md)
 
+# Assumptions
+
+- **Overlapping Sessions**: Since an admin functionality has not yet been implemented, restrictions that prevent overlapping cinema sessions for the same hall have not been created. The test data assumes that overlapping is not possible
+
 # Postman
 
 There's a postman collection in [postman/cinema.json](postman/Cinema.json)
